@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILightsports | FIFA Licensed Agent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'fifa-navy': '#0A1E3F',
+                        'fifa-gold': '#C8A84E',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+        .animate-marquee { animation: scroll 20s linear infinite; }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+
+    <!-- Ticker -->
+    <div class="bg-fifa-gold text-fifa-navy py-2 px-4 overflow-hidden whitespace-nowrap font-bold text-sm">
+        <div class="inline-block animate-marquee">⚽ Summer Transfer Window: Top 5 League clubs eyeing African talents | ⚽ UEFA Champions League draw set for next week | ⚽ AFCON Qualifiers: New stars emerging | ⚽ ILightsports continues scouting mission across Europe and Asia</div>
+    </div>
+
+    <!-- Hero -->
+    <section class="relative h-[65vh] w-full bg-cover bg-center shadow-md" style="background-image: url('/assets/images/flyers/ilightflyer2.jpg');">
+        <div class="absolute inset-0 bg-black/70"></div>
+        <div class="relative z-10 flex flex-col items-end justify-center h-full px-8 text-white text-right">
+            <h1 class="text-xl md:text-3xl font-extrabold">ILightsports Sports Management LTD - 15459476</h1>
+            <p class="text-lg md:text-2xl font-bold text-fifa-gold mt-1">FIFA Licensed Agency</p>
+            <p class="text-sm md:text-lg mt-1">License: 202606-12971</p>
+            <p class="text-sm md:text-lg font-semibold italic text-gray-200 mt-1">Your Talent, Our Commitment</p>
+            <p class="text-sm md:text-lg text-gray-300 mt-2">Solomon Edoh</p>
+            <p class="text-sm md:text-lg text-gray-300">London, UK.</p>
+        </div>
+    </section>
+
+    <!-- Showcase Your Talent -->
+    <section class="py-12 px-6 text-center bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Showcase Your Talent</h2>
+        <p class="max-w-2xl mx-auto text-gray-300 mb-8 text-sm md:text-base">Are you a Player, Coach, or Academy with a highlight reel? We are actively scouting. Send your video clips directly.</p>
+        <div class="flex flex-col md:flex-row gap-4 justify-center">
+            <a href="mailto:info@ilightsportmanagement.com?subject=Highlight%20Reel%20Submission" class="bg-fifa-gold text-fifa-navy px-8 py-3 rounded-full font-bold hover:bg-yellow-500 transition shadow-lg inline-flex items-center gap-2">
+                <i class="fas fa-envelope"></i> Send via Email
+            </a>
+            <a href="https://wa.me/447448447271?text=Hi%20Solomon!" target="_blank" class="bg-[#25D366] text-white px-8 py-3 rounded-full font-bold hover:bg-green-500 transition shadow-lg inline-flex items-center gap-2">
+                <i class="fab fa-whatsapp"></i> Send via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="py-12 px-6 text-center bg-white">
+        <h2 class="text-3xl font-bold text-fifa-navy mb-8">What We Do</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div class="p-6 border rounded-xl shadow-sm hover:shadow-md transition"><i class="fas fa-futbol text-fifa-gold text-3xl mb-2"></i><h3 class="font-bold">Player Transfers</h3></div>
+            <div class="p-6 border rounded-xl shadow-sm hover:shadow-md transition"><i class="fas fa-file-signature text-fifa-gold text-3xl mb-2"></i><h3 class="font-bold">Contract Negotiation</h3></div>
+            <div class="p-6 border rounded-xl shadow-sm hover:shadow-md transition"><i class="fas fa-binoculars text-fifa-gold text-3xl mb-2"></i><h3 class="font-bold">Scouting Network</h3></div>
+        </div>
+    </section>
+
+    <!-- Flyer Gallery -->
+    <section class="py-12 px-6 bg-gray-50">
+        <h2 class="text-3xl font-bold text-center text-fifa-navy mb-8">Our Footprint</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <img src="/assets/images/flyers/ilightflyer.jpg" class="rounded-xl shadow-lg hover:scale-105 transition w-full object-cover">
+            <img src="/assets/images/flyers/ilightflyer2.jpg" class="rounded-xl shadow-lg hover:scale-105 transition w-full object-cover">
+            <img src="/assets/images/flyers/ilightflyer3.jpg" class="rounded-xl shadow-lg hover:scale-105 transition w-full object-cover">
+            <img src="/assets/images/flyers/ilightflyer4.jpg" class="rounded-xl shadow-lg hover:scale-105 transition w-full object-cover">
+            <img src="/assets/images/flyers/ilightflyer5.jpg" class="rounded-xl shadow-lg hover:scale-105 transition w-full object-cover md:col-span-2 md:max-w-[50%] md:mx-auto">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-fifa-navy text-white py-8 px-6 text-center border-t-4 border-fifa-gold">
+        <h3 class="text-xl font-bold mb-4">Connect with us</h3>
+        <div class="flex justify-center gap-6 mb-4 text-2xl">
+            <a href="https://www.instagram.com/ilightsportsmanagement" target="_blank" class="hover:text-fifa-gold transition"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/solomon-edoh-922720418" target="_blank" class="hover:text-fifa-gold transition"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com/solomonedoh_" target="_blank" class="hover:text-fifa-gold transition"><i class="fab fa-x-twitter"></i></a>
+        </div>
+        <p class="text-xs text-gray-400">&copy; 2026 ILightsports Management Ltd.</p>
+    </footer>
+</body>
+</html>

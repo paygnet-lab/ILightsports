@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | ILightsports</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'fifa-navy': '#0A1E3F',
+                        'fifa-gold': '#C8A84E',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+
+    <!-- Navbar -->
+    <nav class="bg-fifa-navy text-white p-4 shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="../index.html" class="text-xl font-bold">ILightsports</a>
+            <div class="space-x-4 text-sm md:text-base">
+                <a href="../index.html" class="hover:text-fifa-gold transition">Home</a>
+                <a href="about.html" class="hover:text-fifa-gold transition">About</a>
+                <a href="contact.html" class="hover:text-fifa-gold transition text-fifa-gold">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+        <h1 class="text-3xl font-bold text-fifa-navy mb-8 text-center">Contact Us</h1>
+
+        <!-- Flyer Pasted Here -->
+        <div class="mb-8 text-center">
+            <img src="/assets/images/flyers/ilightflyer.jpg" alt="Are you ready for the next step?" class="max-w-full h-auto rounded-xl shadow-lg mx-auto border border-gray-200 max-w-md">
+            <p class="text-xs text-gray-500 mt-2">Ready to take the next step? Get in touch.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100">
+            
+            <!-- Left: Contact Form -->
+            <div>
+                <h2 class="text-xl font-bold text-fifa-navy mb-4">Send a Message</h2>
+                <form action="mailto:info@ilightsportmanagement.com" method="POST" enctype="text/plain" class="space-y-4">
+                    <div>
+                        <input type="text" name="name" placeholder="Your Full Name" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-fifa-gold outline-none">
+                    </div>
+                    <div>
+                        <input type="email" name="email" placeholder="Your Email Address" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-fifa-gold outline-none">
+                    </div>
+                    <div>
+                        <textarea name="message" rows="4" placeholder="Your Message..." required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-fifa-gold outline-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-fifa-gold text-fifa-navy font-bold py-3 rounded-lg hover:bg-yellow-500 transition shadow">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Right: Company Details & Address -->
+            <div class="bg-gray-50 p-6 rounded-lg flex flex-col justify-center space-y-4 border border-gray-200">
+                <div class="flex gap-3 items-start">
+                    <i class="fas fa-building text-fifa-gold text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-fifa-navy">ILightsports Sports Management LTD</h4>
+                        <p class="text-sm text-gray-600">Company #: 15459476</p>
+                        <p class="text-sm text-gray-600">FIFA Licensed Agency</p>
+                        <p class="text-sm text-gray-600">License: 202606-12971</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 items-start">
+                    <i class="fas fa-map-pin text-fifa-gold text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-fifa-navy">Location</h4>
+                        <p class="text-sm text-gray-600">London, United Kingdom</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 items-start">
+                    <i class="fas fa-envelope text-fifa-gold text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-fifa-navy">Email</h4>
+                        <p class="text-sm text-gray-600 break-all">info@ilightsportmanagement.com</p>
+                    </div>
+                </div>
+                <a href="https://wa.me/447448447271?text=Hi%20Solomon!" target="_blank" class="mt-4 bg-[#25D366] text-white text-center py-2 rounded-lg font-bold hover:bg-green-500 transition shadow">
+                    <i class="fab fa-whatsapp mr-2"></i> Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-fifa-navy text-white py-8 px-6 text-center border-t-4 border-fifa-gold mt-8">
+        <h3 class="text-xl font-bold mb-4">Connect with us</h3>
+        <div class="flex justify-center gap-6 mb-4 text-2xl">
+            <a href="https://www.instagram.com/ilightsportsmanagement" target="_blank" class="hover:text-fifa-gold transition"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/solomon-edoh-922720418" target="_blank" class="hover:text-fifa-gold transition"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com/solomonedoh_" target="_blank" class="hover:text-fifa-gold transition"><i class="fab fa-x-twitter"></i></a>
+        </div>
+        <p class="text-xs text-gray-400">&copy; 2026 ILightsports Management Ltd.</p>
+    </footer>
+</body>
+</html>
