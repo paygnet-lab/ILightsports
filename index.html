@@ -31,7 +31,6 @@
 
     <!-- News Ticker -->
     <div class="bg-fifa-gold text-fifa-navy py-2 px-4 overflow-hidden whitespace-nowrap font-bold text-sm z-50 relative">
-        <!-- The script will inject live headlines here -->
         <div class="animate-marquee inline-block" id="news-ticker-content">⚽ Loading the latest football headlines...</div>
     </div>
 
@@ -47,12 +46,12 @@
         </div>
     </nav>
 
-    <!-- Hero Section (No Image, Navy Background, Top-Right Small Text) -->
-    <section class="relative h-[48vh] lg:h-[35vh] w-full bg-fifa-navy flex justify-end items-start pt-4 md:pt-10 px-6 md:px-12 overflow-visible">
+    <!-- Hero Section (Auto-height) -->
+    <section class="relative w-full bg-fifa-navy flex justify-end items-start py-6 md:py-8 px-6 md:px-12 overflow-visible">
         <div class="flex flex-col items-end gap-2 text-right max-w-[95%] md:max-w-[75%]">
             
-            <!-- Text Block: Separated lines, text-xs, right aligned -->
-            <div class="text-[12px] md:text-[12px] leading-tight text-white space-y-1">
+            <!-- Text Block -->
+            <div class="text-xs md:text-xs leading-tight text-white space-y-1">
                 <p class="font-bold text-fifa-gold text-sm md:text-[14px]">ILightsports Sports Management LTD - 15459476</p>
                 <p class="font-bold">FIFA Licensed Agency</p>
                 <p>License: 202606-12971</p>
@@ -61,32 +60,22 @@
                 <p>London, UK.</p>
             </div>
 
-            <!-- The Widget Zone (Strictly 1/4 width on Desktop) -->
-            <div class="w-1/4 min-w-[150px] max-w-[280px] mt-2 hidden md:block">
+            <!-- 🚀 INCREASED WIDGET SIZE (Changed to w-1/3, max-w-[420px], more padding) -->
+            <div class="w-full md:w-1/3 min-w-[180px] max-w-[420px] mt-3">
                 <!-- WIDGET_START -->
-                <div class="bg-white p-3 rounded-xl shadow-lg border-2 border-fifa-gold text-black text-xs md:text-[10px]">
-                    <h4 class="text-fifa-navy font-bold text-xs mb-1">Latest Transfers</h4>
-                    <div class="py-1 border-b border-gray-100 mb-1">
-                        <p class="font-semibold text-gray-800 truncate">Arokodare to Fiorentina</p>
-                        <p class="text-gray-500 leading-tight">Lifeline from Italy...</p>
+                <div class="bg-white p-5 md:p-6 rounded-xl shadow-lg border-2 border-fifa-gold text-black text-sm md:text-base">
+                    <h4 class="text-fifa-navy font-bold mb-2 text-lg">Latest Transfers</h4>
+                    <div class="py-2 border-b border-gray-100 mb-2">
+                        <p class="font-semibold text-gray-800 text-sm">Arokodare to Fiorentina</p>
+                        <p class="text-gray-500 text-xs">Lifeline from Italy...</p>
                     </div>
-                    <div class="py-1">
-                        <p class="font-semibold text-gray-800 truncate">Zadok Yohanna top 100</p>
-                        <p class="text-gray-500 leading-tight">Golden Boy ranking...</p>
+                    <div class="py-2">
+                        <p class="font-semibold text-gray-800 text-sm">Zadok Yohanna top 100</p>
+                        <p class="text-gray-500 text-xs">Golden Boy ranking...</p>
                     </div>
-                    <p class="text-fifa-gold text-[8px] mt-1 font-bold cursor-pointer">Read more →</p>
+                    <p class="text-fifa-gold text-xs mt-2 font-bold cursor-pointer">Read more →</p>
                 </div>
                 <!-- WIDGET_END -->
-            </div>
-
-            <!-- Mobile fallback for Widget -->
-            <div class="w-full mt-2 block md:hidden">
-                <!-- WIDGET_START_MOBILE -->
-                <div class="bg-white p-3 rounded-xl shadow-lg border-2 border-fifa-gold text-black text-xs text-left w-full">
-                    <h4 class="text-fifa-navy font-bold text-xs mb-1">Scouting Update</h4>
-                    <p class="text-gray-500 text-[10px]">Scanning for new transfers...</p>
-                </div>
-                <!-- WIDGET_END_MOBILE -->
             </div>
 
         </div>
@@ -108,7 +97,7 @@
         </div>
     </section>
 
-    <!-- What We Do (Soft Blue Tint for Rhyme) -->
+    <!-- What We Do -->
     <section class="py-12 px-6 bg-blue-50/30">
         <h2 class="text-3xl font-bold text-fifa-navy mb-8 text-center">What We Do</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -127,11 +116,10 @@
         </div>
     </section>
 
-    <!-- Flyer Gallery (Fixed: Removed 3, Added fifa-agent-cropped) -->
+    <!-- Flyer Gallery -->
     <section class="py-12 px-6 bg-gray-50">
         <h2 class="text-3xl font-bold text-center text-fifa-navy mb-8">Our Footprint</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <!-- Use fifa-agent-cropped.jpg here -->
             <img src="assets/images/flyers/fifa-agent-cropped.jpg" class="rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition w-full object-cover border border-gray-100">
             <img src="assets/images/flyers/ilightflyer3.jpg" class="rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition w-full object-cover border border-gray-100">
             <img src="assets/images/flyers/ilightflyer4.jpg" class="rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition w-full object-cover border border-gray-100 md:col-span-1">
@@ -149,43 +137,34 @@
         <p class="text-xs text-gray-400">&copy; 2026 ILightsports Management Ltd.</p>
     </footer>
 
-    <!-- UPDATED: Live Football News Ticker Script (Bypasses NewsAPI CORS limits) -->
+    <!-- Live Football News Ticker Script -->
     <script>
       const tickerElement = document.getElementById('news-ticker-content');
-      
-      // We use a free, public RSS-to-JSON proxy (no API key needed, never blocked)
       const PROXY_URL = "https://api.allorigins.win/raw?url=";
-      // We fetch real trending sports headlines from Google News RSS
       const RSS_URL = encodeURIComponent("https://news.google.com/rss/search?q=football+transfer+OR+World+Cup+2026+OR+UEFA+OR+Premier+League&hl=en-US&gl=US&ceid=US:en");
 
       async function updateTicker() {
         try {
           const response = await fetch(PROXY_URL + RSS_URL);
           const rawXml = await response.text();
-          
-          // Parse the RSS XML using a built-in browser parser
           const parser = new DOMParser();
           const xmlDoc = parser.parseFromString(rawXml, "text/xml");
           const items = xmlDoc.querySelectorAll("item");
           
           if (items.length === 0) throw new Error("No news found");
 
-          // Extract the first 6 headlines
           let headlines = [];
           items.forEach((item, index) => {
             if (index < 6) {
               let title = item.querySelector("title").textContent;
-              // Clean up Google News prefixes
               title = title.replace(" - Google News", "").replace(" - Yahoo News", "").replace(" - The Athletic", "").trim();
               headlines.push(title);
             }
           });
 
-          // Update the ticker beautifully
           tickerElement.innerHTML = "⚽ " + headlines.join(" | ⚽ ");
 
         } catch (e) {
-          // Bulletproof fallback if the proxy temporarily fails
           console.log("Proxy failed, using local fallback.");
           const fallback = [
             "World Cup 2026: Semifinals ignite global football fever!",
@@ -198,9 +177,8 @@
         }
       }
 
-      // Run immediately, then refresh every 5 minutes so it updates automatically
       updateTicker();
-      setInterval(updateTicker, 300000); // 300,000ms = 5 minutes
+      setInterval(updateTicker, 300000); // Updates every 5 minutes
     </script>
 </body>
 </html>
