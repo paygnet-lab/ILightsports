@@ -7,50 +7,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<!-- News Ticker API Script -->
-<script>
-  const tickerElement = document.getElementById('ticker-content');
-  
-  // --- CONFIGURATION ---
-  const API_KEY = "25e47bda08864acaa35956bdc5c12fb6"; // <-- Your key is already here
-  const PROXY_URL = "https://api.allorigins.win/raw?url="; // Bypasses CORS block
-  const URL = `https://newsapi.org/v2/everything?q=football+transfer+OR+UEFA+OR+Premier+League&apiKey=${API_KEY}&pageSize=5`;
-
-  async function updateTicker() {
-    try {
-      // Fetching via the proxy to avoid CORS block
-      const response = await fetch(PROXY_URL + encodeURIComponent(URL));
-      const data = await response.json();
-      let headlines = data.articles.map(a => a.title);
-      // Update the ticker text
-      tickerElement.innerHTML = "🔥 " + headlines.join(" | 🔥 ");
-    } catch (e) {
-      // If the API fails, fallback to the dummy news we already have
-      console.log("Using fallback ticker (API limit reached or key invalid)");
-      const fallbackNews = [
-        "Summer Transfer Window: Top 5 League clubs eyeing African talents",
-        "UEFA Champions League draw set for next week",
-        "AFCON Qualifiers: New stars emerging across the continent",
-        "Premier League kick-off dates officially announced",
-        "ILightsports continues scouting mission across Europe and Asia"
-      ];
-      tickerElement.innerHTML = "⚽ " + fallbackNews.join(" | ⚽ ");
-    }
-  }
-  
-  updateTicker();
-</script>
-
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'fifa-navy': '#0A1E3F',
+                        'fifa-gold': '#C8A84E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         @keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-        .animate-marquee { animation: scroll 25s linear infinite; }
+        .animate-marquee { animation: scroll 30s linear infinite; }
     </style>
 </head>
 <body class="bg-gray-50 font-sans antialiased">
 
     <!-- News Ticker -->
     <div class="bg-fifa-gold text-fifa-navy py-2 px-4 overflow-hidden whitespace-nowrap font-bold text-sm z-50 relative">
-        <div class="inline-block animate-marquee">⚽ Summer Transfer Window: Top 5 League clubs eyeing African talents | ⚽ UEFA Champions League draw set | ⚽ AFCON Qualifiers: New stars emerging | ⚽ ILightsports scouting mission active across Europe and Asia</div>
+        <!-- The script will inject live headlines here -->
+        <div class="animate-marquee inline-block" id="news-ticker-content">⚽ Loading the latest football headlines...</div>
     </div>
 
     <!-- Modern White Navbar -->
@@ -65,39 +47,56 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Reduced to 48vh, background fixed with relative path) -->
-    <section class="relative h-[48vh] lg:h-[35vh] w-full bg-cover bg-center shadow-sm" style="background-image: url('assets/images/flyers/fifa-agent-cropped.jpg');">
-        <div class="absolute inset-0 bg-black/70"></div>
-<div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-3 hover:shadow-md transition">
-            <a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxOZmk0V1F1TjJjVEhjRDZBUXY3VjBGNG1GRDRhR0Z5ZmcwRmtrODFSVTBYRHlxUERhY0dHNjR2TmFicUw3R2NoTzZ1TFZDNDdOa0Y4R01peEl6eHJjVHpnM3pwWE9LYV9rX2JTWnUwZHZtODFiODU4dXRKaGV2SmVKZlc3RDdPNHREak8wX0VjbkhrZWxORjY0dExVeDNyYkJRMlg0cU8tQXowbWxvMVBuVFZkeHZ0QzlHTlpyaTYxVFdVTVJ4VHZV?oc=5" target="_blank" class="block">
-                <h4 class="text-fifa-navy font-bold text-base mb-1 hover:text-fifa-gold transition">Arokodare Receives Transfer Lifeline From Fiorentina Of Italy, Following His Lost Opportunity At Wolves - Sports247 Nigeria</h4>
-                <p class="text-gray-600 text-sm line-clamp-4"><a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxOZmk0V1F1TjJjVEhjRDZBUXY3VjBGNG1GRDRhR0Z5ZmcwRmtrODFSVTBYRHlxUERhY0dHNjR2TmFicUw3R2NoTzZ1TFZDNDdOa0Y4R01peEl6eHJjVHpnM3pwWE9LYV9rX2JTWnUwZHZtODFiODU4dXRKaGV2SmVKZlc3RDdPNHREak8wX0VjbkhrZWxO...</p>
-                <div class="mt-2 text-xs text-fifa-gold font-bold">Read more →</div>
-            </a>
-        </div>
+    <!-- Hero Section (No Image, Navy Background, Top-Right Small Text) -->
+    <section class="relative h-[48vh] lg:h-[35vh] w-full bg-fifa-navy flex justify-end items-start pt-4 md:pt-10 px-6 md:px-12 overflow-visible">
+        <div class="flex flex-col items-end gap-2 text-right max-w-[95%] md:max-w-[75%]">
+            
+            <!-- Text Block: Separated lines, text-xs, right aligned -->
+            <div class="text-[12px] md:text-[12px] leading-tight text-white space-y-1">
+                <p class="font-bold text-fifa-gold text-sm md:text-[14px]">ILightsports Sports Management LTD - 15459476</p>
+                <p class="font-bold">FIFA Licensed Agency</p>
+                <p>License: 202606-12971</p>
+                <p class="italic">Your Talent, Our Commitment</p>
+                <p>Solomon Edoh</p>
+                <p>London, UK.</p>
+            </div>
 
-        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-3 hover:shadow-md transition">
-            <a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxQZGV5d3czREdneE5ySFJsSEZwQjE3UUZZRWxJYXlfYkZWaGNpR1dWMl9URGJfc0RGb09OYUNFV2ROQmhxSEM2RVNsMzVhRTRzLW1vTm00Vk5CN3c1X20tU0h6MUxNd2F3bjc2WlRIano0WEhQTGgtMFBYcmtYd1FqSm1DeFF4aF9kOUdBYXY0WnMwM2l2UHdhNkhwT1JzQTQwYXNJRklSd0JOUGN0eWxZMQ?oc=5" target="_blank" class="block">
-                <h4 class="text-fifa-navy font-bold text-base mb-1 hover:text-fifa-gold transition">Nigerian Sensation Zadok Yohanna Breaks Into 2026 Golden Boy Top 100 Rankings - streamlinefeed.co.ke</h4>
-                <p class="text-gray-600 text-sm line-clamp-4"><a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxQZGV5d3czREdneE5ySFJsSEZwQjE3UUZZRWxJYXlfYkZWaGNpR1dWMl9URGJfc0RGb09OYUNFV2ROQmhxSEM2RVNsMzVhRTRzLW1vTm00Vk5CN3c1X20tU0h6MUxNd2F3bjc2WlRIano0WEhQTGgtMFBYcmtYd1FqSm1DeFF4aF9kOUdBYXY0WnMwM2l2...</p>
-                <div class="mt-2 text-xs text-fifa-gold font-bold">Read more →</div>
-            </a>
-        </div>
-        <div class="relative z-10 flex flex-col items-end justify-center h-full px-8 text-white text-right max-w-6xl mx-auto">
-            <h1 class="text-xl md:text-3xl font-extrabold">ILightsports Sports Management LTD - 15459476</h1>
-            <p class="text-lg md:text-2xl font-bold text-fifa-gold mt-1">FIFA Licensed Agency</p>
-            <p class="text-sm md:text-lg mt-1">License: 202606-12971</p>
-            <p class="text-sm md:text-lg font-semibold italic text-gray-200 mt-1">Your Talent, Our Commitment</p>
-            <p class="text-sm md:text-lg text-gray-300 mt-2">Solomon Edoh</p>
-            <p class="text-sm md:text-lg text-gray-300">London, UK.</p>
+            <!-- The Widget Zone (Strictly 1/4 width on Desktop) -->
+            <div class="w-1/4 min-w-[150px] max-w-[280px] mt-2 hidden md:block">
+                <!-- WIDGET_START -->
+                <div class="bg-white p-3 rounded-xl shadow-lg border-2 border-fifa-gold text-black text-xs md:text-[10px]">
+                    <h4 class="text-fifa-navy font-bold text-xs mb-1">Latest Transfers</h4>
+                    <div class="py-1 border-b border-gray-100 mb-1">
+                        <p class="font-semibold text-gray-800 truncate">Arokodare to Fiorentina</p>
+                        <p class="text-gray-500 leading-tight">Lifeline from Italy...</p>
+                    </div>
+                    <div class="py-1">
+                        <p class="font-semibold text-gray-800 truncate">Zadok Yohanna top 100</p>
+                        <p class="text-gray-500 leading-tight">Golden Boy ranking...</p>
+                    </div>
+                    <p class="text-fifa-gold text-[8px] mt-1 font-bold cursor-pointer">Read more →</p>
+                </div>
+                <!-- WIDGET_END -->
+            </div>
+
+            <!-- Mobile fallback for Widget -->
+            <div class="w-full mt-2 block md:hidden">
+                <!-- WIDGET_START_MOBILE -->
+                <div class="bg-white p-3 rounded-xl shadow-lg border-2 border-fifa-gold text-black text-xs text-left w-full">
+                    <h4 class="text-fifa-navy font-bold text-xs mb-1">Scouting Update</h4>
+                    <p class="text-gray-500 text-[10px]">Scanning for new transfers...</p>
+                </div>
+                <!-- WIDGET_END_MOBILE -->
+            </div>
+
         </div>
     </section>
 
-    <!-- Showcase Your Talent (White theme) -->
-    <section class="py-12 px-6 text-center bg-white shadow-sm border-b border-gray-100">
+    <!-- Showcase Your Talent -->
+    <section class="py-12 px-6 text-center bg-gradient-to-br from-gray-900 to-gray-800 text-white">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold text-fifa-navy mb-4">Showcase Your Talent</h2>
-            <p class="text-gray-600 mb-8 text-sm md:text-base">Are you a Player, Coach, or Academy with a highlight reel? We are actively scouting. Send your video clips directly.</p>
+            <h2 class="text-3xl font-bold text-fifa-gold mb-4">Showcase Your Talent</h2>
+            <p class="text-gray-300 mb-8 text-sm md:text-base">Are you a Player, Coach, or Academy with a highlight reel? We are actively scouting. Send your video clips directly.</p>
             <div class="flex flex-col md:flex-row gap-4 justify-center">
                 <a href="mailto:info@ilightsportmanagement.com?subject=Highlight%20Reel%20Submission" class="bg-fifa-gold text-fifa-navy px-8 py-3 rounded-full font-bold hover:bg-yellow-500 transition shadow-md inline-flex items-center gap-2">
                     <i class="fas fa-envelope"></i> Send via Email
@@ -109,8 +108,8 @@
         </div>
     </section>
 
-    <!-- What We Do (White Cards) -->
-    <section class="py-12 px-6 bg-gray-50">
+    <!-- What We Do (Soft Blue Tint for Rhyme) -->
+    <section class="py-12 px-6 bg-blue-50/30">
         <h2 class="text-3xl font-bold text-fifa-navy mb-8 text-center">What We Do</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <div class="bg-white p-8 rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-gray-100 text-center hover:shadow-lg transition">
@@ -128,10 +127,11 @@
         </div>
     </section>
 
-    <!-- Flyer Gallery -->
-    <section class="py-12 px-6 bg-white">
+    <!-- Flyer Gallery (Fixed: Removed 3, Added fifa-agent-cropped) -->
+    <section class="py-12 px-6 bg-gray-50">
         <h2 class="text-3xl font-bold text-center text-fifa-navy mb-8">Our Footprint</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <!-- Use fifa-agent-cropped.jpg here -->
             <img src="assets/images/flyers/fifa-agent-cropped.jpg" class="rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition w-full object-cover border border-gray-100">
             <img src="assets/images/flyers/ilightflyer3.jpg" class="rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition w-full object-cover border border-gray-100">
             <img src="assets/images/flyers/ilightflyer4.jpg" class="rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition w-full object-cover border border-gray-100 md:col-span-1">
@@ -148,5 +148,59 @@
         </div>
         <p class="text-xs text-gray-400">&copy; 2026 ILightsports Management Ltd.</p>
     </footer>
+
+    <!-- UPDATED: Live Football News Ticker Script (Bypasses NewsAPI CORS limits) -->
+    <script>
+      const tickerElement = document.getElementById('news-ticker-content');
+      
+      // We use a free, public RSS-to-JSON proxy (no API key needed, never blocked)
+      const PROXY_URL = "https://api.allorigins.win/raw?url=";
+      // We fetch real trending sports headlines from Google News RSS
+      const RSS_URL = encodeURIComponent("https://news.google.com/rss/search?q=football+transfer+OR+World+Cup+2026+OR+UEFA+OR+Premier+League&hl=en-US&gl=US&ceid=US:en");
+
+      async function updateTicker() {
+        try {
+          const response = await fetch(PROXY_URL + RSS_URL);
+          const rawXml = await response.text();
+          
+          // Parse the RSS XML using a built-in browser parser
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(rawXml, "text/xml");
+          const items = xmlDoc.querySelectorAll("item");
+          
+          if (items.length === 0) throw new Error("No news found");
+
+          // Extract the first 6 headlines
+          let headlines = [];
+          items.forEach((item, index) => {
+            if (index < 6) {
+              let title = item.querySelector("title").textContent;
+              // Clean up Google News prefixes
+              title = title.replace(" - Google News", "").replace(" - Yahoo News", "").replace(" - The Athletic", "").trim();
+              headlines.push(title);
+            }
+          });
+
+          // Update the ticker beautifully
+          tickerElement.innerHTML = "⚽ " + headlines.join(" | ⚽ ");
+
+        } catch (e) {
+          // Bulletproof fallback if the proxy temporarily fails
+          console.log("Proxy failed, using local fallback.");
+          const fallback = [
+            "World Cup 2026: Semifinals ignite global football fever!",
+            "Summer Transfer Window: African talents heading to Europe",
+            "UEFA Champions League: Draws and reactions rolling in",
+            "AFCON Qualifiers: New rising stars across the continent",
+            "ILightsports scouting mission continues across Europe and Asia"
+          ];
+          tickerElement.innerHTML = "⚽ " + fallback.join(" | ⚽ ");
+        }
+      }
+
+      // Run immediately, then refresh every 5 minutes so it updates automatically
+      updateTicker();
+      setInterval(updateTicker, 300000); // 300,000ms = 5 minutes
+    </script>
 </body>
 </html>
