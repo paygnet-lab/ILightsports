@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | ILightsports</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
@@ -13,6 +14,9 @@
                     colors: {
                         'fifa-navy': '#0A1E3F',
                         'fifa-gold': '#C8A84E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
                     }
                 }
             }
@@ -22,13 +26,13 @@
 <body class="bg-gray-50 font-sans antialiased">
 
     <!-- Navbar -->
-    <nav class="bg-fifa-navy text-white p-4 shadow-md sticky top-0 z-50">
+    <nav class="bg-white shadow-sm border-b border-gray-100 p-4 sticky top-0 z-50">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="../index.html" class="text-xl font-bold">ILightsports</a>
-            <div class="space-x-4 text-sm md:text-base">
+            <a href="../index.html" class="text-xl font-extrabold text-fifa-navy tracking-tight">ILightsports</a>
+            <div class="space-x-6 text-sm md:text-base font-medium text-gray-600">
                 <a href="../index.html" class="hover:text-fifa-gold transition">Home</a>
                 <a href="about.html" class="hover:text-fifa-gold transition">About</a>
-                <a href="contact.html" class="hover:text-fifa-gold transition text-fifa-gold">Contact</a>
+                <a href="contact.html" class="hover:text-fifa-gold transition text-fifa-navy">Contact</a>
             </div>
         </div>
     </nav>
@@ -37,26 +41,26 @@
     <main class="max-w-4xl mx-auto px-6 py-10">
         <h1 class="text-3xl font-bold text-fifa-navy mb-8 text-center">Contact Us</h1>
 
-        <!-- Flyer Pasted Here -->
+        <!-- Flyer (Using relative path ../assets to reach root assets) -->
         <div class="mb-8 text-center">
-            <img src="/assets/images/flyers/ilightflyer.jpg" alt="Are you ready for the next step?" class="max-w-full h-auto rounded-xl shadow-lg mx-auto border border-gray-200 max-w-md">
+            <img src="../assets/images/flyers/ilightflyer.jpg" alt="Are you ready for the next step?" class="max-w-full h-auto rounded-xl shadow-md mx-auto border border-gray-100 max-w-md hover:shadow-lg transition">
             <p class="text-xs text-gray-500 mt-2">Ready to take the next step? Get in touch.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-6 md:p-8 rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-gray-100">
             
             <!-- Left: Contact Form -->
             <div>
                 <h2 class="text-xl font-bold text-fifa-navy mb-4">Send a Message</h2>
                 <form action="mailto:info@ilightsportmanagement.com" method="POST" enctype="text/plain" class="space-y-4">
                     <div>
-                        <input type="text" name="name" placeholder="Your Full Name" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-fifa-gold outline-none">
+                        <input type="text" name="name" placeholder="Your Full Name" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-fifa-gold outline-none bg-gray-50">
                     </div>
                     <div>
-                        <input type="email" name="email" placeholder="Your Email Address" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-fifa-gold outline-none">
+                        <input type="email" name="email" placeholder="Your Email Address" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-fifa-gold outline-none bg-gray-50">
                     </div>
                     <div>
-                        <textarea name="message" rows="4" placeholder="Your Message..." required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-fifa-gold outline-none"></textarea>
+                        <textarea name="message" rows="4" placeholder="Your Message..." required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-fifa-gold outline-none bg-gray-50"></textarea>
                     </div>
                     <button type="submit" class="w-full bg-fifa-gold text-fifa-navy font-bold py-3 rounded-lg hover:bg-yellow-500 transition shadow">Send Message</button>
                 </form>

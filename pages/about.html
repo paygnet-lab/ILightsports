@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | ILightsports</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
@@ -13,6 +14,9 @@
                     colors: {
                         'fifa-navy': '#0A1E3F',
                         'fifa-gold': '#C8A84E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
                     }
                 }
             }
@@ -22,12 +26,12 @@
 <body class="bg-gray-50 font-sans antialiased">
 
     <!-- Navbar -->
-    <nav class="bg-fifa-navy text-white p-4 shadow-md sticky top-0 z-50">
+    <nav class="bg-white shadow-sm border-b border-gray-100 p-4 sticky top-0 z-50">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="../index.html" class="text-xl font-bold">ILightsports</a>
-            <div class="space-x-4 text-sm md:text-base">
+            <a href="../index.html" class="text-xl font-extrabold text-fifa-navy tracking-tight">ILightsports</a>
+            <div class="space-x-6 text-sm md:text-base font-medium text-gray-600">
                 <a href="../index.html" class="hover:text-fifa-gold transition">Home</a>
-                <a href="about.html" class="hover:text-fifa-gold transition text-fifa-gold">About</a>
+                <a href="about.html" class="hover:text-fifa-gold transition text-fifa-navy">About</a>
                 <a href="contact.html" class="hover:text-fifa-gold transition">Contact</a>
             </div>
         </div>
@@ -35,32 +39,32 @@
 
     <!-- Main Content -->
     <main class="max-w-4xl mx-auto px-6 py-12">
-        <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-fifa-gold">
+        <div class="bg-white p-8 rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border-t-4 border-fifa-gold">
             <h1 class="text-3xl font-bold text-fifa-navy mb-6 text-center">About Us</h1>
             
-            <div class="space-y-6 text-lg leading-relaxed text-gray-700">
-                <p>I am a <strong>FIFA Licensed Football Agent</strong> and a Registered Football administration with <strong>The Football Association (English FA)</strong>, as well as the Founder & Director of iLight Sports Management.</p>
+            <div class="space-y-6 text-base leading-relaxed text-gray-700">
+                <p>I am a <strong class="text-fifa-navy">FIFA Licensed Football Agent</strong> and a Registered Football administration with <strong class="text-fifa-navy">The Football Association (English FA)</strong>, as well as the Founder & Director of iLight Sports Management.</p>
                 
                 <p>With a background in law and business administration, I bring a professional, strategic, and ethical approach to player representation. My experience enables me to understand the legal, commercial, and personal aspects of a footballer's career, supporting players in making informed decisions both on and off the pitch.</p>
                 
                 <p>Through iLight Sports Management, I provide player representation, career management, talent identification, and football advisory services. I am committed to building trusted relationships with players, coaches, clubs, academies, and football stakeholders while creating opportunities for long-term career development.</p>
                 
-                <p><strong>My vision</strong> is to establish a respected football management company that delivers integrity, professionalism, and meaningful pathways for talented players in the UK and internationally.</p>
+                <p><strong class="text-fifa-navy">My vision</strong> is to establish a respected football management company that delivers integrity, professionalism, and meaningful pathways for talented players in the UK and internationally.</p>
             </div>
 
-            <div class="mt-8 p-6 bg-fifa-navy text-white rounded-lg">
+            <div class="mt-8 p-6 bg-fifa-navy text-white rounded-lg shadow-inner">
                 <h3 class="text-xl font-bold mb-4 text-fifa-gold">Areas of Focus</h3>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 list-disc list-inside text-gray-200 text-base">
-                    <li>Player Representation</li>
-                    <li>Career Management</li>
-                    <li>Talent Identification</li>
-                    <li>Club & Academy Relations</li>
-                    <li>Transfer & Contract Advisory</li>
-                    <li>International Football Pathways <br><span class="text-xs text-fifa-gold">(Africa, Europe, Asia)</span></li>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 list-disc list-inside text-gray-200 text-base font-bold">
+                    <li class="font-bold">Player Representation</li>
+                    <li class="font-bold">Career Management</li>
+                    <li class="font-bold">Talent Identification</li>
+                    <li class="font-bold">Club & Academy Relations</li>
+                    <li class="font-bold">Transfer & Contract Advisory</li>
+                    <li class="font-bold">International Football Pathways <br><span class="text-xs text-fifa-gold font-normal">(Africa, Europe, Asia)</span></li>
                 </ul>
             </div>
 
-            <div class="mt-6 text-center text-gray-600 italic text-sm">
+            <div class="mt-6 text-center text-gray-500 italic text-sm">
                 <i class="fas fa-flag-uk mr-2"></i> United Kingdom
             </div>
         </div>
