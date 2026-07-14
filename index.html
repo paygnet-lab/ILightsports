@@ -7,11 +7,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: { extend: { colors: { 'fifa-navy': '#0A1E3F', 'fifa-gold': '#C8A84E' }, fontFamily: { sans: ['Inter', 'sans-serif'] } } }
-        }
-    </script>
+<!-- News Ticker API Script -->
+<script>
+  const tickerElement = document.getElementById('ticker-content');
+  
+  // --- CONFIGURATION ---
+  const API_KEY = "25e47bda08864acaa35956bdc5c12fb6"; // <-- Your key is already here
+  const PROXY_URL = "https://api.allorigins.win/raw?url="; // Bypasses CORS block
+  const URL = `https://newsapi.org/v2/everything?q=football+transfer+OR+UEFA+OR+Premier+League&apiKey=${API_KEY}&pageSize=5`;
+
+  async function updateTicker() {
+    try {
+      // Fetching via the proxy to avoid CORS block
+      const response = await fetch(PROXY_URL + encodeURIComponent(URL));
+      const data = await response.json();
+      let headlines = data.articles.map(a => a.title);
+      // Update the ticker text
+      tickerElement.innerHTML = "🔥 " + headlines.join(" | 🔥 ");
+    } catch (e) {
+      // If the API fails, fallback to the dummy news we already have
+      console.log("Using fallback ticker (API limit reached or key invalid)");
+      const fallbackNews = [
+        "Summer Transfer Window: Top 5 League clubs eyeing African talents",
+        "UEFA Champions League draw set for next week",
+        "AFCON Qualifiers: New stars emerging across the continent",
+        "Premier League kick-off dates officially announced",
+        "ILightsports continues scouting mission across Europe and Asia"
+      ];
+      tickerElement.innerHTML = "⚽ " + fallbackNews.join(" | ⚽ ");
+    }
+  }
+  
+  updateTicker();
+</script>
+
     <style>
         @keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
         .animate-marquee { animation: scroll 25s linear infinite; }
